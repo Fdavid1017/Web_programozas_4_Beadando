@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ContactsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactsForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WorkXPForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkXPForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +79,7 @@
       <updated>1575393694326</updated>
       <workItem from="1575393718730" duration="4789000" />
       <workItem from="1575465316904" duration="3856000" />
-      <workItem from="1575471181872" duration="19868000" />
+      <workItem from="1575471181872" duration="22958000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base forms&#10;+ installing redux">
       <created>1575483666158</created>
@@ -94,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575485736641</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="getting form values from contacts page">
+      <created>1575495471227</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575495471227</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +124,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created the base forms&#10;+ installing redux" />
     <MESSAGE value="i dont even know if this thing is working or not :'(" />
-    <option name="LAST_COMMIT_MESSAGE" value="i dont even know if this thing is working or not :'(" />
+    <MESSAGE value="getting form values from contacts page" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting form values from contacts page" />
   </component>
 </project>
