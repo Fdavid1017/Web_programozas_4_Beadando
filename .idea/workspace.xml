@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bb5b9550-0ca7-402d-aace-642fa685df4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ContactsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WorkXPForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkXPForm.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +78,7 @@
       <updated>1575393694326</updated>
       <workItem from="1575393718730" duration="4789000" />
       <workItem from="1575465316904" duration="3856000" />
-      <workItem from="1575471181872" duration="10651000" />
+      <workItem from="1575471181872" duration="19868000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base forms&#10;+ installing redux">
       <created>1575483666158</created>
@@ -89,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575483666169</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="i dont even know if this thing is working or not :'(">
+      <created>1575485736640</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575485736641</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +115,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created the base forms&#10;+ installing redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created the base forms&#10;+ installing redux" />
+    <MESSAGE value="i dont even know if this thing is working or not :'(" />
+    <option name="LAST_COMMIT_MESSAGE" value="i dont even know if this thing is working or not :'(" />
   </component>
 </project>

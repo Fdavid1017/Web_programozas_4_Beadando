@@ -8,6 +8,13 @@ class WorkExperience extends React.Component {
     state = {
         inputs: []
     };
+
+    constructor(props) {
+        super(props);
+        alert("const");
+        alert(ContactsForm.state.name);
+    }
+
     addInput = () => {
         console.log(this.state.inputs.length);
         this.setState({
