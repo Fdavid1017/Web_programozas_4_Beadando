@@ -39,7 +39,6 @@ class ContactsForm extends React.Component {
 
     render() {
         return (
-
             <div className={"box row mt-5 d-flex justify-content-center"}>
                 <div className={"row"}>
                     <form class={"col"} onSubmit={this.handleSubmit} name={"contacts"}>

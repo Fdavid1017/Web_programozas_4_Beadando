@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import ContactsForm from './ContactsForm';
+import Main from "./RootView";
 import * as serviceWorker from './serviceWorker';
 
-window.$name="";
-window.phone="";
-window.$email="";
-window.$address="";
+window.$name = "";
+window.phone = "";
+window.$email = "";
+window.$address = "";
 
-window.$jobs=[];
+window.$jobs = [];
 
-ReactDOM.render(<ContactsForm/>,document.getElementById("root"));
+ReactDOM.render(<Main/>, document.getElementById("main"));
+//ReactDOM.render(<ContactsForm/>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
