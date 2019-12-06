@@ -16,10 +16,6 @@ class WorkExperience extends React.Component {
             descs: []
         };
 
-        this.setState({
-            inputs: [...this.state.inputs, <CompanyInput name={this.state.inputs.length}/>]
-        });
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -47,23 +43,18 @@ class WorkExperience extends React.Component {
         this.setState({
             inputs: [...this.state.inputs, <CompanyInput name={this.state.inputs.length}/>]
         });
-        // alert(window.$name + "\n" + window.$address);
+        alert(window.$name + "\n" + window.$address);
     };
 
     render() {
         return (
-            <div class={"box row mt-5 d-flex justify-content-center"}>
-                <div class={"row"}>
-                    <CompanyInput name={"def"}/>
-                    {this.state.inputs}
-                </div>
-                <div className={"row w-100"}></div>
-                <div class={"row d-flex flex-row-reverse"}>
-                    <div className="col p-2">
-                        <button onClick={this.addInput}>Add more Job</button>
-                        <button onClick={previous}>Previous</button>
-                        <button onClick={next}>Next</button>
-                    </div>
+            <div>
+                <CompanyInput name={"def"}/>
+                {this.state.inputs}
+                <div>
+                    <button onClick={this.addInput}>Add more Job</button>
+                    <button onClick={previous}>Previous</button>
+                    <button onClick={next}>Next</button>
                 </div>
             </div>
         );

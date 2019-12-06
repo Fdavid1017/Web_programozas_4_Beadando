@@ -17,18 +17,13 @@ class EducationForm extends React.Component {
 
     render() {
         return (
-            <div class={"box row mt-5 d-flex justify-content-center"}>
-                <div className={"row"}>
-                    <EducationInput name={"def"}/>
-                    {this.state.inputs}
-                </div>
-                <div className={"row w-100"}></div>
-                <div class={"row d-flex flex-row-reverse"}>
-                    <div className="col p-2">
-                        <button onClick={this.addInput}>Add more School</button>
-                        <button onClick={previous}>Previous</button>
-                        <button onClick={next}>Next</button>
-                    </div>
+            <div>
+                <EducationInput name={"def"}/>
+                {this.state.inputs}
+                <div>
+                    <button onClick={this.addInput}>Add more School</button>
+                    <button onClick={previous}>Previous</button>
+                    <button onClick={next}>Next</button>
                 </div>
             </div>
         );
