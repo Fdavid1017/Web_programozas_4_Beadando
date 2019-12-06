@@ -3,6 +3,7 @@ import WorkExperience from "./WorkXPForm";
 import ReactDOM from "react-dom";
 import {connect} from 'react-redux'
 import {Field, reduxForm, formValueSelector, getFormValues} from 'redux-form'
+import CompanyInput from "./CompanyInput";
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -38,34 +39,46 @@ class ContactsForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit} name={"contacts"}>
-                    <div className="input_field">
-                        <label htmlFor={"nameInputField"}>Name:</label><input name={"name"} type={"text"}
-                                                                              id={"nameInputField"}
-                                                                              value={this.state.value}
-                                                                              onChange={this.handleInputChange}/>
+
+            <div className={"box row mt-5 d-flex justify-content-center"}>
+                <div className={"row"}>
+                    <form class={"col"} onSubmit={this.handleSubmit} name={"contacts"}>
+                        <div className={"row mt-2"}>
+                            <label className={"col"} htmlFor={"nameInputField"}>Name:</label>
+                            <input className={"col-8"} name={"name"} type={"text"}
+                                   id={"nameInputField"}
+                                   value={this.state.value}
+                                   onChange={this.handleInputChange}/>
+                        </div>
+                        <div className={"row mt-2"}>
+                            <label className={"col"} htmlFor={"telInputField"}>Phone:</label>
+                            <input className={"col-8"} name={"phone"} type={"tel"}
+                                   id={"telInputField"}
+                                   value={this.state.value}
+                                   onChange={this.handleInputChange}/>
+                        </div>
+                        <div className={"row mt-2"}>
+                            <label className={"col"} htmlFor={"emailInputField"}>E-mail:</label>
+                            <input className={"col-8"} name={"email"} type={"email"}
+                                   id={"emailInputField"}
+                                   value={this.state.value}
+                                   onChange={this.handleInputChange}/>
+                        </div>
+                        <div className={"row mt-2"}>
+                            <label className={"col"} htmlFor={"addressInputField"}>Address:</label>
+                            <input className={"col-8"} name={"address"} type={"text"}
+                                   id={"addressInputField"}
+                                   value={this.state.value}
+                                   onChange={this.handleInputChange}/>
+                        </div>
+                    </form>
+                </div>
+                <div className={"row w-100"}></div>
+                <div className={"row d-flex flex-row-reverse"}>
+                    <div className="col p-2">
+                        <button onClick={next}>Next</button>
                     </div>
-                    <div className="input_field">
-                        <label htmlFor={"telInputField"}>Phone:</label><input name={"phone"} type={"tel"}
-                                                                              id={"telInputField"}
-                                                                              value={this.state.value}
-                                                                              onChange={this.handleInputChange}/>
-                    </div>
-                    <div className="input_field">
-                        <label htmlFor={"emailInputField"}>E-mail:</label><input name={"email"} type={"email"}
-                                                                                 id={"emailInputField"}
-                                                                                 value={this.state.value}
-                                                                                 onChange={this.handleInputChange}/>
-                    </div>
-                    <div className="input_field">
-                        <label htmlFor={"addressInputField"}>Address:</label><input name={"address"} type={"text"}
-                                                                                    id={"addressInputField"}
-                                                                                    value={this.state.value}
-                                                                                    onChange={this.handleInputChange}/>
-                    </div>
-                    <button type={"submit"}>Next</button>
-                </form>
+                </div>
             </div>
         )
     }

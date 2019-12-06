@@ -17,13 +17,18 @@ class SkillsFormForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <SkillsInput name={"def"}/>
-                {this.state.inputs}
-                <div>
-                    <button onClick={this.addInput}>Add more Skill</button>
-                    <button onClick={previous}>Previous</button>
-                    <button onClick={next}>Next</button>
+            <div class={"box row mt-5 d-flex justify-content-center"}>
+                <div class={"row"}>
+                    <SkillsInput name={"def"}/>
+                    {this.state.inputs}
+                </div>
+                <div class={"row w-100"}></div>
+                <div class={"row d-flex flex-row-reverse"}>
+                    <div className="col p-2">
+                        <button onClick={this.addInput}>Add more Skill</button>
+                        <button onClick={previous}>Previous</button>
+                        <button onClick={next}>Next</button>
+                    </div>
                 </div>
             </div>
         );
@@ -38,7 +43,7 @@ function previous(e) {
 
 function next(e) {
     e.preventDefault();
-     ReactDOM.render(<SummaryForm/>, document.getElementById("root"));
+    ReactDOM.render(<SummaryForm/>, document.getElementById("root"));
 }
 
 export default SkillsFormForm;
