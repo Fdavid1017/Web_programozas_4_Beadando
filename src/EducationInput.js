@@ -25,10 +25,9 @@ class EducationInput extends React.Component {
                            id={this.props.name.toString() + "EduInputMonthTill"}/>
                 </div>
                 <div class={"row mt-2"}>
-                    <label class={"col"} htmlFor={this.props.name.toString() + "EduInputDesc"}>Education
+                    <label className={"col"} htmlFor={this.props.name.toString() + "EduInputDesc"}>Education
                         description:</label>
-                    <input class={"col-7"}
-                           type={"text"}
+                    <textarea className={"col-7"}
                            id={this.props.name.toString() + "EduInputDesc"}/>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ContactsForm from './ContactsForm';
 import Main from "./RootView";
 import * as serviceWorker from './serviceWorker';
+import Navbar from "./Navbar";
 
 window.$name = "";
 window.phone = "";
@@ -11,6 +12,7 @@ window.$address = "";
 
 window.$jobs = [];
 
+ReactDOM.render(<Navbar/>, document.getElementById("nav"));
 ReactDOM.render(<ContactsForm/>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

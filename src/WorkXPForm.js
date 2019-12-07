@@ -43,7 +43,6 @@ class WorkExperience extends React.Component {
         this.setState({
             inputs: [...this.state.inputs, <CompanyInput name={this.state.inputs.length}/>]
         });
-        alert(window.$name + "\n" + window.$address);
     };
 
     render() {

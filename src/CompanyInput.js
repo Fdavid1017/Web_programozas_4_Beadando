@@ -22,8 +22,7 @@ class CompanyInput extends React.Component {
                 </div>
                 <div className={"row mt-2"}>
                     <label className={"col"} htmlFor={this.props.name.toString() + "InputDesc"}>Job description:</label>
-                    <input className={"col-7"}
-                           type={"text"}
+                    <textarea className={"col-7"}
                            id={this.props.name.toString() + "InputDesc"}/>
                 </div>
             </div>

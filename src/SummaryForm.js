@@ -10,7 +10,7 @@ class SummaryForm extends React.Component {
                     <div className={"col"}>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"summaryInput"}>Summary:</label>
-                            <input className={"col-7"} type={"text"} id={"summaryInput"}/>
+                            <textarea className={"col-7"} id={"summaryInput"}/>
                         </div>
                     </div>
                 </div>
