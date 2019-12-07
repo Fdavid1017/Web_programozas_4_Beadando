@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import {connect} from 'react-redux'
 import {Field, reduxForm, formValueSelector, getFormValues} from 'redux-form'
 import CompanyInput from "./CompanyInput";
+import Contact from "./Contact";
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -30,10 +31,7 @@ class ContactsForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        window.$name = this.state.name;
-        window.$phone = this.state.phone;
-        window.$email = this.state.email;
-        window.$address = this.state.address;
+        window.$contact=new Contact(this.state.name,this.state.phone,this.state.email, this.state.address);
         next(event);
     }
 
@@ -75,7 +73,7 @@ class ContactsForm extends React.Component {
                 <div className={"row w-100"}></div>
                 <div className={"row d-flex flex-row-reverse"}>
                     <div className="col p-2">
-                        <button onClick={next}>Next</button>
+                        <button onClick={this.handleSubmit}>Next</button>
                     </div>
                 </div>
             </div>

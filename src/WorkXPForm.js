@@ -3,6 +3,7 @@ import CompanyInput from "./CompanyInput";
 import ReactDOM from "react-dom";
 import EducationForm from "./EducationForm";
 import ContactsForm from "./ContactsForm";
+import Job from "./Job.js";
 
 class WorkExperience extends React.Component {
 
@@ -10,19 +11,19 @@ class WorkExperience extends React.Component {
         super(props);
         this.state = {
             inputs: [],
-            companyNames: [],
-            froms: [],
-            tills: [],
-            descs: []
+            companyName: "",
+            froms: "",
+            tills: "",
+            descs: "",
+            jobs: []
         };
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
         this.setState({
             [name]: value
@@ -31,17 +32,21 @@ class WorkExperience extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        window.$name = this.state.name;
-        window.$phone = this.state.phone;
-        window.$email = this.state.email;
-        window.$address = this.state.address;
+        window.$jobs = this.state.jobs;
+        alert(window.$jobs.valueOf()[0].desc);
         next(event);
     }
 
     addInput = () => {
         console.log(this.state.inputs.length);
         this.setState({
-            inputs: [...this.state.inputs, <CompanyInput name={this.state.inputs.length}/>]
+            inputs: [...this.state.inputs,
+                <CompanyInput name={this.state.inputs.length} onChange={this.handleInputChange()}/>]
+        });
+        this.setState({
+            jobs: [...this.state.jobs, new Job(this.state.companyName,
+                this.state.froms,
+                this.state.tills, this.state.descs)]
         });
     };
 
@@ -49,7 +54,7 @@ class WorkExperience extends React.Component {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
                 <div className={"row"}>
-                    <CompanyInput name={"def"}/>
+                    <CompanyInput name={"def"} onChange={this.handleInputChange()}/>
                     {this.state.inputs}
                 </div>
                 <div className={"row w-100"}></div>

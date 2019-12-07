@@ -4,13 +4,11 @@ import ContactsForm from './ContactsForm';
 import Main from "./RootView";
 import * as serviceWorker from './serviceWorker';
 import Navbar from "./Navbar";
+import Contact from "./Contact";
+import Jobs from "./Job.js";
 
-window.$name = "";
-window.phone = "";
-window.$email = "";
-window.$address = "";
-
-window.$jobs = [];
+window.$contact=null;
+window.$jobs=[];
 
 ReactDOM.render(<Navbar/>, document.getElementById("nav"));
 ReactDOM.render(<ContactsForm/>, document.getElementById("root"));
