@@ -41,7 +41,7 @@ class ContactsForm extends React.Component {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
                 <div className={"row"}>
-                    <form class={"col"} onSubmit={this.handleSubmit} name={"contacts"}>
+                    <form className={"col"} onSubmit={this.handleSubmit} name={"contacts"}>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"nameInputField"}>Name:</label>
                             <input className={"col-8"} name={"name"} type={"text"}

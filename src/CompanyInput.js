@@ -4,23 +4,27 @@ class CompanyInput extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <label htmlFor={this.props.name.toString() + "InputName"}>Company name:</label><input type={"text"}
-                                                                                                          id={this.props.name.toString() + "InputName"}/>
+            <div className={"col"}>
+                <div className={"row mt-2"}>
+                    <label className={"col"} htmlFor={this.props.name.toString() + "InputName"}>Company name:</label>
+                    <input className={"col-7"} type={"text"}
+                           id={this.props.name.toString() + "InputName"}/>
                 </div>
-                <div>
-                    <label htmlFor={this.props.name.toString() + "InputMonthFrom"}>From:</label><input type={"month"}
-                                                                                                       id={this.props.name.toString() + "InputMonthFrom"}/>
+                <div className={"row mt-2"}>
+                    <label className={"col"} htmlFor={this.props.name.toString() + "InputMonthFrom"}>From:</label>
+                    <input className={"col-7"} type={"month"}
+                           id={this.props.name.toString() + "InputMonthFrom"}/>
                 </div>
-                <div>
-                    <label htmlFor={this.props.name.toString() + "InputMonthTill"}>Till:</label><input type={"month"}
-                                                                                                       id={this.props.name.toString() + "InputMonthTill"}/>
+                <div className={"row mt-2"}>
+                    <label className={"col"} htmlFor={this.props.name.toString() + "InputMonthTill"}>Till:</label>
+                    <input className={"col-7"} type={"month"}
+                           id={this.props.name.toString() + "InputMonthTill"}/>
                 </div>
-                <div>
-                    <label htmlFor={this.props.name.toString() + "InputDesc"}>Job description:</label><input
-                    type={"text"}
-                    id={this.props.name.toString() + "InputDesc"}/>
+                <div className={"row mt-2"}>
+                    <label className={"col"} htmlFor={this.props.name.toString() + "InputDesc"}>Job description:</label>
+                    <input className={"col-7"}
+                           type={"text"}
+                           id={this.props.name.toString() + "InputDesc"}/>
                 </div>
             </div>
         )

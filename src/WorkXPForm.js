@@ -48,13 +48,18 @@ class WorkExperience extends React.Component {
 
     render() {
         return (
-            <div>
-                <CompanyInput name={"def"}/>
-                {this.state.inputs}
-                <div>
-                    <button onClick={this.addInput}>Add more Job</button>
-                    <button onClick={previous}>Previous</button>
-                    <button onClick={next}>Next</button>
+            <div className={"box row mt-5 d-flex justify-content-center"}>
+                <div className={"row"}>
+                    <CompanyInput name={"def"}/>
+                    {this.state.inputs}
+                </div>
+                <div className={"row w-100"}></div>
+                <div className={"row d-flex flex-row-reverse"}>
+                    <div className="col p-2">
+                        <button onClick={this.addInput}>Add more Job</button>
+                        <button onClick={previous}>Previous</button>
+                        <button onClick={next}>Next</button>
+                    </div>
                 </div>
             </div>
         );

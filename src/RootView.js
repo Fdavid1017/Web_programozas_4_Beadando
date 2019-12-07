@@ -7,8 +7,8 @@ class Main extends React.Component {
     render() {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
-                <div className={"row"}>
-                    <div class={"col"}>
+                <div className={"row mt-5 d-flex justify-content-center"}>
+                    <div className={""}>
                         <ul>
                             <li>Contacts</li>
                             <li>Jobs</li>
