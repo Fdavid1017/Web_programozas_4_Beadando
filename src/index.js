@@ -6,12 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import Navbar from "./Navbar";
 import Contact from "./Contact";
 import Jobs from "./Job.js";
-import {createStore} from "redux";
 
 window.$contact=null;
+window.$jobs=[];
+window.$education=[];
+window.$skills=[];
+/*
 window.$companyName=[];
 window.$time=[];
-window.$desc=[];
+window.$desc=[];*/
 
 ReactDOM.render(<Navbar/>, document.getElementById("nav"));
 ReactDOM.render(<ContactsForm/>, document.getElementById("root"));

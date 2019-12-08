@@ -10,15 +10,12 @@ class WorkExperience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputs: [],
             companyName: "",
             froms: "",
             tills: "",
             descs: "",
-            jobs: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange(event) {
@@ -52,12 +49,6 @@ class WorkExperience extends React.Component {
         }
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        window.$jobs = this.state.jobs;
-        next(event);
-    }
-
     addInput = () => {
         /*   this.setState({
                inputs: [...this.state.inputs,
@@ -70,13 +61,14 @@ class WorkExperience extends React.Component {
            });*/
 
 
-        window.$companyName.push(this.state.companyName);
-        let time = [];
-        for (let i = 0; i < this.state.froms.length; i++) {
-            time.push(this.state.froms[i] + " - " + this.state.tills[i]);
-        }
-        window.$time.push(this.state.from + " - " + this.state.till);
-        window.$desc.push(this.state.desc);
+        // window.$companyName.push(this.state.companyName);
+        /*  let time = [];
+          for (let i = 0; i < this.state.froms.length; i++) {
+              time.push(this.state.froms[i] + " - " + this.state.tills[i]);
+          }*/
+        /* window.$time.push(this.state.from + " - " + this.state.till);
+         window.$desc.push(this.state.desc);*/
+        window.$jobs.push(new Job(this.state.companyName, this.state.from, this.state.till, this.state.desc));
 
 
         this.setState({
@@ -92,8 +84,8 @@ class WorkExperience extends React.Component {
     render() {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
-                <div id={"companyForm"} className={"row"}>
-                    <div className={"col"}>
+                <div className={"row"}>
+                    <div className={"co l"}>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"comapanyInputName"}>Company name:</label>
                             <input name={"companyName"} className={"col-7"} type={"text"}

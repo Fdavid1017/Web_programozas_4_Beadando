@@ -3,24 +3,41 @@ import ReactDOM from "react-dom";
 import SkillsInput from "./SkillsInput";
 import EducationForm from "./EducationForm";
 import SummaryForm from "./SummaryForm";
+import Job from "./Job";
 
 class SkillsFormForm extends React.Component {
     state = {
-        inputs: []
+        inputs: ""
     };
-    addInput = () => {
-        console.log(this.state.inputs.length);
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
         this.setState({
-            inputs: [...this.state.inputs, <SkillsInput name={this.state.inputs.length}/>]
+            inputs: value === "" ? " " : value
         })
+    }
+
+
+    addInput = () => {
+        window.$skills.push(this.state.inputs);
+
+        this.setState({
+            inputs: ""
+        });
     };
 
     render() {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
                 <div className={"row"}>
-                    <SkillsInput name={"def"}/>
-                    {this.state.inputs}
+                    <div className={"col mt-2"}>
+                        <label className={"col-xl"}
+                               htmlFor={"SkillInputName"}>Skill:</label>
+                        <input className={"col-xl"} type={"text"}
+                               value={this.state.inputs} onChange={this.handleInputChange} id={"SkillInputName"}/>
+                    </div>
                 </div>
                 <div className={"row w-100"}></div>
                 <div className={"row d-flex flex-row-reverse"}>
