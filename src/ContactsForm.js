@@ -5,6 +5,10 @@ import {connect} from 'react-redux'
 import {Field, reduxForm, formValueSelector, getFormValues} from 'redux-form'
 import CompanyInput from "./CompanyInput";
 import Contact from "./Contact";
+import Message from "./Message";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Slide, Zoom, Flip, Bounce} from 'react-toastify';
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -31,7 +35,13 @@ class ContactsForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        window.$contact=new Contact(this.state.name,this.state.phone,this.state.email, this.state.address);
+        window.$contact = new Contact(this.state.name, this.state.phone, this.state.email, this.state.address);
+        toast.configure();
+        toast("Contacts saved!", {
+            position: toast.POSITION.TOP_LEFT,
+            type: toast.TYPE.SUCCESS,
+            autoClose: 3000,
+        });
         next(event);
     }
 

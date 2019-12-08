@@ -4,11 +4,14 @@ import ReactDOM from "react-dom";
 import EducationForm from "./EducationForm";
 import ContactsForm from "./ContactsForm";
 import Job from "./Job.js";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class WorkExperience extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             companyName: "",
             froms: "",
@@ -50,32 +53,18 @@ class WorkExperience extends React.Component {
     }
 
     addInput = () => {
-        /*   this.setState({
-               inputs: [...this.state.inputs,
-                   <CompanyInput name={this.state.inputs.length}/>]
-           });
-           this.setState({
-               jobs: [...this.state.jobs, new Job(this.state.companyName,
-                   this.state.froms,
-                   this.state.tills, this.state.descs)]
-           });*/
-
-
-        // window.$companyName.push(this.state.companyName);
-        /*  let time = [];
-          for (let i = 0; i < this.state.froms.length; i++) {
-              time.push(this.state.froms[i] + " - " + this.state.tills[i]);
-          }*/
-        /* window.$time.push(this.state.from + " - " + this.state.till);
-         window.$desc.push(this.state.desc);*/
         window.$jobs.push(new Job(this.state.companyName, this.state.from, this.state.till, this.state.desc));
-
-
         this.setState({
             companyName: "",
             froms: "",
             tills: "",
             descs: ""
+        });
+        toast.configure();
+        toast("Company infos saved!", {
+            position: toast.POSITION.TOP_LEFT,
+            type: toast.TYPE.SUCCESS,
+            autoClose: 3000,
         });
     };
 
@@ -115,7 +104,11 @@ class WorkExperience extends React.Component {
                     <div className="col p-2">
                         <button onClick={this.addInput}>Add more Job</button>
                         <button onClick={previous}>Previous</button>
-                        <button onClick={next}>Next</button>
+                        <button onClick={(event) => {
+                            this.addInput();
+                            next(event);
+                        }}>Next
+                        </button>
                     </div>
                 </div>
             </div>

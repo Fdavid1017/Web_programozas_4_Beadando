@@ -7143,6 +7143,9 @@ body {
   font-family: 'Sulphur Point', sans-serif;
   font-size: 24px; }
 
+html {
+  min-height: 100%; }
+
 .bg-gradient {
   background: #22bee6;
   background: linear-gradient(45deg, #22bee6 0%, #d521f0 100%); }
@@ -7183,3 +7186,9 @@ input, textarea {
 
 .summaryInput {
   height: 100px; }
+
+.successFull {
+  color: #4BB543 !important; }
+
+.errorMsg {
+  color: #D8000C !important; }

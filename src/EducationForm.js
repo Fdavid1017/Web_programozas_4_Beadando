@@ -5,6 +5,7 @@ import EducationForm from "./EducationForm";
 import ContactsForm from "./ContactsForm";
 import Job from "./Job.js";
 import SkillsFormForm from "./SkillsForm";
+import {toast} from "react-toastify";
 
 class WorkExperience extends React.Component {
 
@@ -60,6 +61,13 @@ class WorkExperience extends React.Component {
             tills: "",
             descs: ""
         });
+
+        toast.configure();
+        toast("School infos saved!", {
+            position: toast.POSITION.TOP_LEFT,
+            type: toast.TYPE.SUCCESS,
+            autoClose: 3000,
+        });
     };
 
 
@@ -98,7 +106,11 @@ class WorkExperience extends React.Component {
                     <div className="col p-2">
                         <button onClick={this.addInput}>Add more School</button>
                         <button onClick={previous}>Previous</button>
-                        <button onClick={next}>Next</button>
+                        <button onClick={(event) => {
+                            this.addInput();
+                            next(event);
+                        }}>Next
+                        </button>
                     </div>
                 </div>
             </div>

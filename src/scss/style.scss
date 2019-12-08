@@ -3,15 +3,21 @@
 
 $background: #f2f2f2;
 $secondary: #69DED5;
-$bg-blue:#22bee6;
-$bg-pink:#d521f0;
+$bg-blue: #22bee6;
+$bg-pink: #d521f0;
+$success: #4BB543;
+$error: #D8000C;
 
 body {
   font-family: 'Sulphur Point', sans-serif;
-  font-size:24px;
+  font-size: 24px;
 }
 
-.bg-gradient{
+html {
+  min-height: 100%;
+}
+
+.bg-gradient {
   background: $bg-blue;
   background: linear-gradient(45deg, $bg-blue 0%, $bg-pink 100%);
 }
@@ -54,6 +60,14 @@ input, textarea {
   margin-right: 24px;
 }
 
-.summaryInput{
+.summaryInput {
   height: 100px;
+}
+
+.successFull{
+  color: $success !important;
+}
+
+.errorMsg{
+  color: $error !important;
 }

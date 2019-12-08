@@ -4,11 +4,17 @@ import SkillsInput from "./SkillsInput";
 import EducationForm from "./EducationForm";
 import SummaryForm from "./SummaryForm";
 import Job from "./Job";
+import {toast} from "react-toastify";
 
 class SkillsFormForm extends React.Component {
-    state = {
-        inputs: ""
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            inputs: ""
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
 
     handleInputChange(event) {
         const target = event.target;
@@ -25,6 +31,13 @@ class SkillsFormForm extends React.Component {
 
         this.setState({
             inputs: ""
+        });
+
+        toast.configure();
+        toast("Skill saved!", {
+            position: toast.POSITION.TOP_LEFT,
+            type: toast.TYPE.SUCCESS,
+            autoClose: 3000,
         });
     };
 
@@ -44,7 +57,11 @@ class SkillsFormForm extends React.Component {
                     <div className="col p-2">
                         <button onClick={this.addInput}>Add more Skill</button>
                         <button onClick={previous}>Previous</button>
-                        <button onClick={next}>Next</button>
+                        <button onClick={(event) => {
+                            this.addInput();
+                            next(event);
+                        }}>Next
+                        </button>
                     </div>
                 </div>
             </div>
