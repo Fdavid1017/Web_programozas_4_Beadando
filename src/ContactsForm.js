@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkExperience from "./WorkXPForm";
+import WorkExperience from "./CompanyForm";
 import ReactDOM from "react-dom";
 import {connect} from 'react-redux'
 import {Field, reduxForm, formValueSelector, getFormValues} from 'redux-form'

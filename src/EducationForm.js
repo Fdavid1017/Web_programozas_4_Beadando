@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import EducationInput from "./EducationInput";
-import WorkExperience from "./WorkXPForm";
+import WorkExperience from "./CompanyForm";
 import SkillsForm from "./SkillsForm";
 
 class EducationForm extends React.Component {

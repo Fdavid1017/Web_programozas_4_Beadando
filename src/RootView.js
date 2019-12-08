@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactsForm from './ContactsForm';
 import ReactDOM from "react-dom";
-import WorkExperience from "./WorkXPForm";
+import WorkExperience from "./CompanyForm";
 
 class Main extends React.Component {
     render() {
