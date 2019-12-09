@@ -4,6 +4,7 @@ import SkillsForm from "./SkillsForm";
 import Job from "./Job";
 import {toast} from "react-toastify";
 import ShowJson from "./ShowJson";
+import SummaryPage from "./SummaryPage";
 
 class SummaryForm extends React.Component {
 
@@ -74,7 +75,8 @@ function previous(e) {
 
 function next(e) {
     e.preventDefault();
-    ReactDOM.render(<ShowJson/>, document.getElementById("root"));
+    //ReactDOM.render(<ShowJson/>, document.getElementById("root"));
+    ReactDOM.render(<SummaryPage/>, document.getElementById("root"));
 }
 
 

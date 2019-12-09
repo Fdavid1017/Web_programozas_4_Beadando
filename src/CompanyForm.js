@@ -84,13 +84,14 @@ class WorkExperience extends React.Component {
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"InputMonthFrom"}>From:</label>
-                            <input name={"froms"} className={"col-7"} type={"month"} min={"1950-01"}
+                            <input name={"froms"} className={"col-7"} type={"month"}
                                    value={this.state.from} onChange={this.handleInputChange} id={"froms"}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"InputMonthTill"}>Till:</label>
-                            <input name={"tills"} className={"col-7"} type={"month"} max={Date.now()}
-                                   value={this.state.till} onChange={this.handleInputChange} id={"tills"}/>
+                            <input name={"tills"} className={"col-7"} type={"month"}
+                                   value={this.state.till}
+                                   onChange={this.handleInputChange} id={"tills"}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"companyInputDesc"}>Job description:</label>

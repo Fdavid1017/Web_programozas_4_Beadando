@@ -7,6 +7,7 @@ $bg-blue: #22bee6;
 $bg-pink: #d521f0;
 $success: #4BB543;
 $error: #D8000C;
+$divider: #191919;
 
 body {
   font-family: 'Sulphur Point', sans-serif;
@@ -46,12 +47,12 @@ button {
   border-radius: 16px;
 }
 
-button:hover{
-  background-color: darken($secondary,25%);
+button:hover {
+  background-color: darken($secondary, 25%);
 }
 
 input, textarea {
-  border: solid #191919 1px;
+  border: solid $divider 1px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -68,15 +69,19 @@ input, textarea {
   height: 100px;
 }
 
-.successFull{
+.successFull {
   color: $success !important;
 }
 
-.errorMsg{
+.errorMsg {
   color: $error !important;
 }
 
-code{
-  display: block;
-  white-space: pre-wrap
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.contactSummary {
+  margin-bottom: 16px;
+  border-bottom: solid $divider 1px;
 }

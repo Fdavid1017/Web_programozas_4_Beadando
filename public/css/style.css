@@ -7196,6 +7196,9 @@ input, textarea {
 .errorMsg {
   color: #D8000C !important; }
 
-code {
-  display: block;
-  white-space: pre-wrap; }
+.text-nowrap {
+  white-space: nowrap; }
+
+.contactSummary {
+  margin-bottom: 16px;
+  border-bottom: solid #191919 1px; }
