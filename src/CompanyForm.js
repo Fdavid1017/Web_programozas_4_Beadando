@@ -1,10 +1,9 @@
 import React from 'react';
-import CompanyInput from "./CompanyInput";
 import ReactDOM from "react-dom";
 import EducationForm from "./EducationForm";
 import ContactsForm from "./ContactsForm";
 import Job from "./Job.js";
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class WorkExperience extends React.Component {

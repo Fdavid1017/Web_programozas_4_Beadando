@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import SkillsForm from "./SkillsForm";
 import SummaryForm from "./SummaryForm";
 import ShowJson from "./ShowJson";
+import html2canvas from "html2canvas";
+import jsPDF from 'jspdf';
 
 class SummaryPage extends React.Component {
 
@@ -13,9 +15,10 @@ class SummaryPage extends React.Component {
                 <div className={"row"}>
                     <button onClick={previous}>Previous</button>
                     <button onClick={next}>Show Json</button>
+                    <button onClick={downloadPDF}>Download PDF</button>
                 </div>
                 <div className={"row w-100"}></div>
-                <div className={"row h-100 w-100"}>
+                <div id={"capture"} className={"row h-100 w-100"}>
                     <div className={"col w-100 h-100"}>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}>
@@ -87,21 +90,33 @@ class SummaryPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                < /div>
-                    )
-                    }
-                    }
+            </div>
+        )
+    }
+}
 
 
-                    function previous(e) {
-                    e.preventDefault();
-                    ReactDOM.render(<SummaryForm/>, document.getElementById("root"));
-                }
+function downloadPDF() {
+    const input = document.getElementById('capture');
+    html2canvas(input)
+        .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save("CV.pdf");
+        })
+    ;
+}
 
-                    function next(e) {
-                    e.preventDefault();
-                    ReactDOM.render(<ShowJson/>, document.getElementById("root"));
-                }
+function previous(e) {
+    e.preventDefault();
+    ReactDOM.render(<SummaryForm/>, document.getElementById("root"));
+}
+
+function next(e) {
+    e.preventDefault();
+    ReactDOM.render(<ShowJson/>, document.getElementById("root"));
+}
 
 
-                    export default SummaryPage;
+export default SummaryPage;
