@@ -1,15 +1,26 @@
 import React from "react";
 import WorkExperienceSummary from "./WorkExperienceSummary";
+import ReactDOM from "react-dom";
+import SkillsForm from "./SkillsForm";
+import SummaryForm from "./SummaryForm";
+import ShowJson from "./ShowJson";
 
 class SummaryPage extends React.Component {
 
     render() {
         return (
             <div className={"box row mt-5 d-flex justify-content-center"}>
+                <div className={"row"}>
+                    <button onClick={previous}>Previous</button>
+                    <button onClick={next}>Show Json</button>
+                </div>
+                <div className={"row w-100"}></div>
                 <div className={"row h-100 w-100"}>
                     <div className={"col w-100 h-100"}>
-                        <div className={"row text-left font-weight-bold"}>
-                            <h4><u>{window.$contact.valueOf().name}</u></h4>
+                        <div className={"row"}>
+                            <div className={"row text-left font-weight-bold"}>
+                                <h1><u>{window.$contact.valueOf().name}</u></h1>
+                            </div>
                         </div>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}><h5><u>Address:</u></h5></div>
@@ -76,9 +87,21 @@ class SummaryPage extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
-        )
-    }
-}
+                < /div>
+                    )
+                    }
+                    }
 
-export default SummaryPage;
+
+                    function previous(e) {
+                    e.preventDefault();
+                    ReactDOM.render(<SummaryForm/>, document.getElementById("root"));
+                }
+
+                    function next(e) {
+                    e.preventDefault();
+                    ReactDOM.render(<ShowJson/>, document.getElementById("root"));
+                }
+
+
+                    export default SummaryPage;

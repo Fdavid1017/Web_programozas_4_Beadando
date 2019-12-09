@@ -36,7 +36,7 @@ html {
 
 button {
   background-color: $secondary;
-  color: white;
+  color: $background;
   border: none;
   margin: 4px;
   padding-left: 8px;
@@ -48,7 +48,18 @@ button {
 }
 
 button:hover {
-  background-color: darken($secondary, 25%);
+  // background-color: darken($secondary, 25%);
+  background-color: $background;
+  border: $secondary solid 2px;
+  color: $secondary;
+  margin: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-shadow: none;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  font-weight: bold;
 }
 
 input, textarea {
@@ -84,4 +95,8 @@ input, textarea {
 .contactSummary {
   margin-bottom: 16px;
   border-bottom: solid $divider 1px;
+}
+
+.nav-home {
+  cursor: pointer;
 }

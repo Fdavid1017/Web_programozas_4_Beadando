@@ -1,6 +1,9 @@
 import React from "react";
 import Contact from "./Job";
 import {toast} from "react-toastify";
+import ReactDOM from "react-dom";
+import SummaryForm from "./SummaryForm";
+import SummaryPage from "./SummaryPage";
 
 let json = null;
 
@@ -43,6 +46,7 @@ class ShowJson extends React.Component {
             <div className={"box row mt-5 d-flex justify-content-center"}>
                 <div className={"row d-flex flex-row-reverse"}>
                     <div className="col p-2">
+                        <button onClick={previous}>Previous</button>
                         <button id={"downloadAnchorElem"} onClick={download}>Download Json</button>
                     </div>
                 </div>
@@ -53,6 +57,11 @@ class ShowJson extends React.Component {
             </div>
         )
     }
+}
+
+function previous(e) {
+    e.preventDefault();
+    ReactDOM.render(<SummaryPage/>, document.getElementById("root"));
 }
 
 export default ShowJson;

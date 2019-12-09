@@ -3,7 +3,7 @@ import React from "react";
 class WorkExperienceSummary extends React.Component {
     render() {
         return (
-            <div className={"row contactSummary"}>
+            <div className={"row"}>
                 <div className={"row"}>
                     <div className={"col text-left"}><h5>{this.props.company}</h5></div>
                     <div className={"col text-right text-nowrap font-weight-light"}><h6>{this.props.fromTill}</h6></div>

@@ -7162,7 +7162,7 @@ html {
 
 button {
   background-color: #69DED5;
-  color: white;
+  color: #f2f2f2;
   border: none;
   margin: 4px;
   padding-left: 8px;
@@ -7173,7 +7173,17 @@ button {
   border-radius: 16px; }
 
 button:hover {
-  background-color: #24a49a; }
+  background-color: #f2f2f2;
+  border: #69DED5 solid 2px;
+  color: #69DED5;
+  margin: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-shadow: none;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  font-weight: bold; }
 
 input, textarea {
   border: solid #191919 1px;
@@ -7202,3 +7212,6 @@ input, textarea {
 .contactSummary {
   margin-bottom: 16px;
   border-bottom: solid #191919 1px; }
+
+.nav-home {
+  cursor: pointer; }
