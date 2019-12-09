@@ -23,7 +23,6 @@ function printJsonData() {
 }
 
 function download() {
-    alert("download");
     if (json === null) {
         toast.configure();
         toast("Json file is empty!", {
@@ -34,11 +33,8 @@ function download() {
         return;
     }
 
-    let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
-    let dlAnchorElem = document.getElementById('downloadAnchorElem');
-    dlAnchorElem.setAttribute("href", dataStr);
-    dlAnchorElem.setAttribute("download", "CV.json");
-    dlAnchorElem.click();
+    var fileDownload = require('react-file-download');
+    fileDownload(json, 'CV.json');
 }
 
 class ShowJson extends React.Component {
