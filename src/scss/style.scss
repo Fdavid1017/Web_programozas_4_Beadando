@@ -46,6 +46,10 @@ button {
   border-radius: 16px;
 }
 
+button:hover{
+  background-color: darken($secondary,25%);
+}
+
 input, textarea {
   border: solid #191919 1px;
   -webkit-border-radius: 8px;
@@ -70,4 +74,9 @@ input, textarea {
 
 .errorMsg{
   color: $error !important;
+}
+
+code{
+  display: block;
+  white-space: pre-wrap
 }

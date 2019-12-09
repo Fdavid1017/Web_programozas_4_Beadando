@@ -28,22 +28,22 @@ class WorkExperience extends React.Component {
         switch (name) {
             case "schoolName":
                 this.setState({
-                    schoolName: value === "" ? " " : value
+                    schoolName: value === "" ? " " : value.toString()
                 });
                 break;
             case "froms":
                 this.setState({
-                    froms: value === "" ? " " : value
+                    froms: value === "" ? " " : value.toString()
                 });
                 break;
             case "tills":
                 this.setState({
-                    tills: value === "" ? " " : value
+                    tills: value === "" ? " " : value.toString()
                 });
                 break;
             case "descs":
                 this.setState({
-                    descs: value === "" ? " " : value
+                    descs: value === "" ? " " : value.toString()
                 });
                 break;
             default:
@@ -53,7 +53,7 @@ class WorkExperience extends React.Component {
 
     addInput = () => {
 
-        window.$education.push(new Job(this.state.schoolName, this.state.from, this.state.till, this.state.desc));
+        window.$education.push(new Job(this.state.schoolName, this.state.froms, this.state.tills, this.state.descs));
 
         this.setState({
             schoolName: "",

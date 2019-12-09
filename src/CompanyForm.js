@@ -23,7 +23,7 @@ class WorkExperience extends React.Component {
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.value;
+        const value = target.value === undefined ? target.getText() : target.value;
         const name = target.name;
 
         switch (name) {
@@ -53,13 +53,14 @@ class WorkExperience extends React.Component {
     }
 
     addInput = () => {
-        window.$jobs.push(new Job(this.state.companyName, this.state.from, this.state.till, this.state.desc));
+        window.$jobs.push(new Job(this.state.companyName, this.state.froms, this.state.tills, this.state.descs));
         this.setState({
             companyName: "",
-            froms: "",
-            tills: "",
-            descs: ""
-        });
+            froms: null,
+            tills: null,
+            descs: null
+        })
+        ;
         toast.configure();
         toast("Company infos saved!", {
             position: toast.POSITION.TOP_LEFT,
@@ -83,19 +84,19 @@ class WorkExperience extends React.Component {
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"InputMonthFrom"}>From:</label>
-                            <input name={"froms"} className={"col-7"} type={"month"}
-                                   value={this.state.from} onChange={this.handleInputChange} id={"InputMonthFrom"}/>
+                            <input name={"froms"} className={"col-7"} type={"month"} min={"1950-01"}
+                                   value={this.state.from} onChange={this.handleInputChange} id={"froms"}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"InputMonthTill"}>Till:</label>
-                            <input name={"tills"} className={"col-7"} type={"month"}
-                                   value={this.state.till} onChange={this.handleInputChange} id={"InputMonthTill"}/>
+                            <input name={"tills"} className={"col-7"} type={"month"} max={Date.now()}
+                                   value={this.state.till} onChange={this.handleInputChange} id={"tills"}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"companyInputDesc"}>Job description:</label>
                             <textarea name={"descs"} className={"col-7"}
                                       value={this.state.desc} onChange={this.handleInputChange}
-                                      id={"companyInputDesc"}/>
+                                      id={"descs"}/>
                         </div>
                     </div>
                 </div>

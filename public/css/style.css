@@ -7172,6 +7172,9 @@ button {
   -moz-border-radius: 16px;
   border-radius: 16px; }
 
+button:hover {
+  background-color: #24a49a; }
+
 input, textarea {
   border: solid #191919 1px;
   -webkit-border-radius: 8px;
@@ -7192,3 +7195,7 @@ input, textarea {
 
 .errorMsg {
   color: #D8000C !important; }
+
+code {
+  display: block;
+  white-space: pre-wrap; }

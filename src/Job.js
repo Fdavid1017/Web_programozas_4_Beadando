@@ -7,6 +7,15 @@ class Contact {
         this.till = till;
         this.desc = desc;
     }
+
+    toString() {
+        return (
+            "Name:" + this.name +
+            "From:" + this.fromm +
+            "Till:" + this.till +
+            "Description:" + this.desc
+        );
+    }
 }
 
 export default Contact;

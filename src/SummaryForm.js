@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import SkillsForm from "./SkillsForm";
 import Job from "./Job";
 import {toast} from "react-toastify";
+import ShowJson from "./ShowJson";
 
 class SummaryForm extends React.Component {
 
@@ -73,16 +74,7 @@ function previous(e) {
 
 function next(e) {
     e.preventDefault();
-    let json = JSON.stringify(
-        window.$contact +
-        window.$education +
-        window.$jobs +
-        window.$contact +
-        window.$skills +
-        window.$summary
-    );
-
-    console.log(json);
+    ReactDOM.render(<ShowJson/>, document.getElementById("root"));
 }
 
 
