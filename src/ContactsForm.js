@@ -5,7 +5,6 @@ import Contact from "./Contact";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CVActions from "./CVActions";
-import CVStore from "./CVStore";
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -40,7 +39,6 @@ class ContactsForm extends React.Component {
             type: toast.TYPE.SUCCESS,
             autoClose: 3000,
         });
-        console.log(CVStore._contacts.valueOf().name);
         next(event);
     }
 

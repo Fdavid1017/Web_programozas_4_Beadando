@@ -9,28 +9,28 @@ class CVActions {
         })
     }
 
-    addJob(job){
+    addJob(job) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_JOB',
             payload: job
         })
     }
 
-    addSchool(school){
+    addSchool(school) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_SCHOOL',
             payload: school
         })
     }
 
-    addSkill(skill){
+    addSkill(skill) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_SKILL',
             payload: skill
         })
     }
 
-    addSummary(summary){
+    addSummary(summary) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_SUMMARY',
             payload: summary
