@@ -1,14 +1,11 @@
 import React from 'react';
-import WorkExperience from "./CompanyForm";
+import WorkExperience from "./JobsForm";
 import ReactDOM from "react-dom";
-import {connect} from 'react-redux'
-import {Field, reduxForm, formValueSelector, getFormValues} from 'redux-form'
-import CompanyInput from "./CompanyInput";
 import Contact from "./Contact";
-import Message from "./Message";
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Slide, Zoom, Flip, Bounce} from 'react-toastify';
+import CVActions from "./CVActions";
+import CVStore from "./CVStore";
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -19,7 +16,6 @@ class ContactsForm extends React.Component {
             email: '',
             address: ''
         };
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -35,13 +31,16 @@ class ContactsForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        window.$contact = new Contact(this.state.name, this.state.phone, this.state.email, this.state.address);
+        //  window.$contact = new Facility(this.state.name, this.state.phone, this.state.email, this.state.address);
+        let ct = new Contact(this.state.name, this.state.phone, this.state.email, this.state.address);
+        CVActions.addContacts(ct);
         toast.configure();
         toast("Contacts saved!", {
             position: toast.POSITION.TOP_LEFT,
             type: toast.TYPE.SUCCESS,
             autoClose: 3000,
         });
+        console.log(CVStore._contacts.valueOf().name);
         next(event);
     }
 

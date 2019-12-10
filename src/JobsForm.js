@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import EducationForm from "./EducationForm";
 import ContactsForm from "./ContactsForm";
-import Job from "./Job.js";
+import Facility from "./Job.js";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CVActions from "./CVActions";
 
 class WorkExperience extends React.Component {
 
@@ -52,7 +53,9 @@ class WorkExperience extends React.Component {
     }
 
     addInput = () => {
-        window.$jobs.push(new Job(this.state.companyName, this.state.froms, this.state.tills, this.state.descs));
+        //  window.$jobs.push(new Job(this.state.companyName, this.state.froms, this.state.tills, this.state.descs));
+        let job = new Facility(this.state.companyName, this.state.froms, this.state.tills, this.state.descs);
+        CVActions.addJob(job);
         this.setState({
             companyName: "",
             froms: null,

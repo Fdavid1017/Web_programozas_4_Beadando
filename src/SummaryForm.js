@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SkillsForm from "./SkillsForm";
-import Job from "./Job";
 import {toast} from "react-toastify";
-import ShowJson from "./ShowJson";
 import SummaryPage from "./SummaryPage";
+import CVActions from "./CVActions";
 
 class SummaryForm extends React.Component {
 
@@ -26,7 +25,8 @@ class SummaryForm extends React.Component {
     }
 
     addInput = () => {
-        window.$summary = this.state.summary;
+        //   window.$summary = this.state.summary;
+        CVActions.addSummary(this.state.summary);
         this.setState({
             summary: ""
         });

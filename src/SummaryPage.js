@@ -1,13 +1,44 @@
 import React from "react";
 import WorkExperienceSummary from "./WorkExperienceSummary";
 import ReactDOM from "react-dom";
-import SkillsForm from "./SkillsForm";
 import SummaryForm from "./SummaryForm";
 import ShowJson from "./ShowJson";
 import html2canvas from "html2canvas";
 import jsPDF from 'jspdf';
+import CVStore from "./CVStore";
 
 class SummaryPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            _contacts: [],
+            _jobs: [],
+            _schools: [],
+            _skills: [],
+            _summary: ""
+        };
+        this._onChange = this._onChange.bind(this);
+        console.log(CVStore._summary);
+    }
+
+    _onChange() {
+        this.setState({
+            _contacts: CVStore._contacts,
+            _jobs: CVStore._jobs,
+            _schools: CVStore._schools,
+            _skills: CVStore._skills,
+            _summary: CVStore._summary
+        });
+    }
+
+    componentDidMount() {
+        CVStore.addChangeListener(this._onChange)
+    }
+
+    componentWillUnmount() {
+        CVStore.removeChangeListener(this._onChange)
+    }
+
 
     render() {
         return (
@@ -22,23 +53,23 @@ class SummaryPage extends React.Component {
                     <div className={"col w-100 h-100"}>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}>
-                                <h1><u>{window.$contact.valueOf().name}</u></h1>
+                                <h1><u>{this.state._contacts.name}</u></h1>
                             </div>
                         </div>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}><h5><u>Address:</u></h5></div>
                             <div className={"row w-100"}></div>
-                            <div className={"row w-100 text-left"}>{window.$contact.valueOf().address}</div>
+                            <div className={"row w-100 text-left"}>{this.state._contacts.address}</div>
                         </div>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}><h5><u>Phone:</u></h5></div>
                             <div className={"row w-100"}></div>
-                            <div className={"row w-100 text-left"}>{window.$contact.valueOf().phone}</div>
+                            <div className={"row w-100 text-left"}>{this.state._contacts.phone}</div>
                         </div>
                         <div className={"row"}>
                             <div className={"row text-left font-weight-bold"}><h5><u>E-mail:</u></h5></div>
                             <div className={"row w-100"}></div>
-                            <div className={"row w-100 text-left"}>{window.$contact.valueOf().email}</div>
+                            <div className={"row w-100 text-left"}>{this.state._contacts.email}</div>
                         </div>
                     </div>
                     <div className={"col w-100 h-100"}>
@@ -47,10 +78,10 @@ class SummaryPage extends React.Component {
                             <div className={"row w-100"}></div>
                             <div className={"row"}>
                                 {
-                                    window.$jobs.map(item =>
-                                        <WorkExperienceSummary company={item.name} fromTill={
-                                            item.fromm + " - " + item.till
-                                        } description={item.desc}/>
+                                    this.state._jobs.map(job =>
+                                        <WorkExperienceSummary company={job.name} fromTill={
+                                            job.fromm + " - " + job.till
+                                        } description={job.desc}/>
                                     )
                                 }
                             </div>
@@ -60,10 +91,10 @@ class SummaryPage extends React.Component {
                             <div className={"row w-100"}></div>
                             <div className={"row"}>
                                 {
-                                    window.$education.map(item =>
-                                        <WorkExperienceSummary company={item.name} fromTill={
-                                            item.fromm + " - " + item.till
-                                        } description={item.desc}/>
+                                    this.state._schools.map(school =>
+                                        <WorkExperienceSummary company={school.name} fromTill={
+                                            school.fromm + " - " + school.till
+                                        } description={school.desc}/>
                                     )
                                 }
                             </div>
@@ -74,8 +105,8 @@ class SummaryPage extends React.Component {
                             <div className={"row w-100"}>
                                 <ul>
                                     {
-                                        window.$skills.map(item =>
-                                            <li>{item}</li>
+                                        this.state._skills.map(skill =>
+                                            <li>{skill}</li>
                                         )
                                     }
                                 </ul>
@@ -85,7 +116,7 @@ class SummaryPage extends React.Component {
                             <div className={"row"}><h5><u>Summary:</u></h5></div>
                             <div className={"row w-100"}></div>
                             <div className={"row text-justify"}>
-                                {window.$summary}
+                                {this.state._summary}
                             </div>
                         </div>
                     </div>

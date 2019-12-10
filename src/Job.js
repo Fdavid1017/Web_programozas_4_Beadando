@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Contact {
+class Facility {
     constructor(name, fromm, till, desc) {
         this.name = name;
         this.fromm = fromm;
@@ -18,4 +18,4 @@ class Contact {
     }
 }
 
-export default Contact;
+export default Facility;

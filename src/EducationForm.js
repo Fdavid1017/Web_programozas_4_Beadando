@@ -1,13 +1,12 @@
 import React from 'react';
-import CompanyInput from "./CompanyInput";
 import ReactDOM from "react-dom";
-import EducationForm from "./EducationForm";
-import ContactsForm from "./ContactsForm";
-import Job from "./Job.js";
+import Facility from "./Job.js";
 import SkillsFormForm from "./SkillsForm";
 import {toast} from "react-toastify";
+import CVActions from "./CVActions";
+import WorkExperience from "./JobsForm";
 
-class WorkExperience extends React.Component {
+class EducationForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -53,8 +52,8 @@ class WorkExperience extends React.Component {
 
     addInput = () => {
 
-        window.$education.push(new Job(this.state.schoolName, this.state.froms, this.state.tills, this.state.descs));
-
+        let school = new Facility(this.state.schoolName, this.state.froms, this.state.tills, this.state.descs);
+        CVActions.addSchool(school);
         this.setState({
             schoolName: "",
             froms: "",
@@ -128,4 +127,4 @@ function next(e) {
     ReactDOM.render(<SkillsFormForm/>, document.getElementById("root"));
 }
 
-export default WorkExperience;
+export default EducationForm;

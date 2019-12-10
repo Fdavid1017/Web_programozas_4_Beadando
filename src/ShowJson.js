@@ -1,8 +1,6 @@
 import React from "react";
-import Contact from "./Job";
 import {toast} from "react-toastify";
 import ReactDOM from "react-dom";
-import SummaryForm from "./SummaryForm";
 import SummaryPage from "./SummaryPage";
 
 let json = null;

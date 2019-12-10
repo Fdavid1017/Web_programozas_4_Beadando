@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import SummaryForm from "./SummaryForm";
 import ContactsForm from "./ContactsForm";
 
 class Navbar extends React.Component {

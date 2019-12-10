@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import SkillsInput from "./SkillsInput";
 import EducationForm from "./EducationForm";
 import SummaryForm from "./SummaryForm";
-import Job from "./Job";
 import {toast} from "react-toastify";
+import CVActions from "./CVActions";
 
 class SkillsFormForm extends React.Component {
     constructor(props) {
@@ -27,8 +26,8 @@ class SkillsFormForm extends React.Component {
 
 
     addInput = () => {
-        window.$skills.push(this.state.inputs);
-
+        //   window.$skills.push(this.state.inputs);
+        CVActions.addSkill(this.state.inputs);
         this.setState({
             inputs: ""
         });
