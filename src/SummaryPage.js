@@ -21,7 +21,6 @@ class SummaryPage extends React.Component {
     }
 
     _onChange() {
-        console.log("Summary on change");
         this.setState({
             _contacts: CVStore._contacts,
             _jobs: CVStore._jobs,
@@ -32,7 +31,7 @@ class SummaryPage extends React.Component {
     }
 
     componentDidMount() {
-        CVStore.addChangeListener(this._onChange)
+        CVStore.addChangeListener(this._onChange);
         this._onChange();
     }
 

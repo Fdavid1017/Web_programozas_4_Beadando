@@ -5,6 +5,7 @@ import Contact from "./Contact";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CVActions from "./CVActions";
+import CVStore from "./CVStore";
 
 class ContactsForm extends React.Component {
     constructor(props) {
@@ -17,6 +18,26 @@ class ContactsForm extends React.Component {
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this._onChange = this._onChange.bind(this);
+    }
+
+    _onChange() {
+        let cont = CVStore._contacts;
+        this.setState({
+            name: cont.valueOf().name,
+            phone: cont.valueOf().phone,
+            email: cont.valueOf().email,
+            address: cont.valueOf().address
+        });
+    }
+
+    componentDidMount() {
+        CVStore.addChangeListener(this._onChange);
+        this._onChange();
+    }
+
+    componentWillUnmount() {
+        CVStore.removeChangeListener(this._onChange)
     }
 
     handleInputChange(event) {
@@ -51,28 +72,28 @@ class ContactsForm extends React.Component {
                             <label className={"col"} htmlFor={"nameInputField"}>Name:</label>
                             <input className={"col-8"} name={"name"} type={"text"}
                                    id={"nameInputField"}
-                                   value={this.state.value}
+                                   value={this.state.name}
                                    onChange={this.handleInputChange}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"telInputField"}>Phone:</label>
                             <input className={"col-8"} name={"phone"} type={"tel"}
                                    id={"telInputField"}
-                                   value={this.state.value}
+                                   value={this.state.phone}
                                    onChange={this.handleInputChange}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"emailInputField"}>E-mail:</label>
                             <input className={"col-8"} name={"email"} type={"email"}
                                    id={"emailInputField"}
-                                   value={this.state.value}
+                                   value={this.state.email}
                                    onChange={this.handleInputChange}/>
                         </div>
                         <div className={"row mt-2"}>
                             <label className={"col"} htmlFor={"addressInputField"}>Address:</label>
                             <input className={"col-8"} name={"address"} type={"text"}
                                    id={"addressInputField"}
-                                   value={this.state.value}
+                                   value={this.state.address}
                                    onChange={this.handleInputChange}/>
                         </div>
                     </form>
