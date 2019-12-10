@@ -20,7 +20,7 @@ class WorkExperience extends React.Component {
             descs: "",
             jobs: [],
             options: [],
-            selected: 1,
+            selectedOption: 0,
             visible: "visible"
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -33,8 +33,6 @@ class WorkExperience extends React.Component {
             }
         );
         this.getOptions();
-        console.log(JSON.stringify(this.state.options));
-        console.log(this.state.jobs.length);
         if (this.state.jobs.length < 1) {
             this.setState({
                 companyName: "",
@@ -43,37 +41,26 @@ class WorkExperience extends React.Component {
                 descs: "",
                 visible: "invisible"
             });
-            console.log("If");
         } else if (this.state.jobs.length === 1) {
-            let fm = new Date();
-            let year = this.state.jobs[0].valueOf().fromm.toString().split('-')[0];
-            let month = this.state.jobs[0].valueOf().fromm.toString().split('-')[1];
-            fm.setFullYear(year);
-            fm.setMonth(month);
-            console.log(fm);
-            let tl = new Date();
-            year = this.state.jobs[0].valueOf().till.toString().split('-')[0];
-            month = this.state.jobs[0].valueOf().till.toString().split('-')[1];
-            tl.setFullYear(year);
-            tl.setMonth(month);
-            tl.setDate(this.state.jobs[0].valueOf().till);
             this.setState({
                 companyName: this.state.jobs[0].valueOf().name,
                 froms: this.state.jobs[0].valueOf().fromm,
-                tills: tl,
+                tills: this.state.jobs[0].valueOf().till,
                 descs: this.state.jobs[0].valueOf().desc,
                 visible: "invisible"
             });
-            console.log("ElseIf\n" + JSON.stringify(this.state.jobs[0]));
         } else {
             this.setState({
-                companyName: this.state.jobs[this.state.selected].name,
-                froms: this.state.jobs[this.state.selected].fromm,
-                tills: this.state.jobs[this.state.selected].till,
-                descs: this.state.jobs[this.state.selected].desc,
-                visible: "visible"
+                companyName: this.state.jobs[this.state.selectedOption].valueOf().name,
+                froms: this.state.jobs[this.state.selectedOption].valueOf().fromm,
+                tills: this.state.jobs[this.state.selectedOption].valueOf().till,
+                descs: this.state.jobs[this.state.selectedOption].valueOf().desc,
+                visible: "visible",
             });
-            console.log("Else\n" + JSON.stringify(this.state.jobs[this.state.selected]));
+            /*  console.log("selectedOption: " + this.state.selectedOption);
+              for (let i = 0; i < this.state.jobs.length; i++) {
+                  console.log(i + " - " + this.state.jobs[i].valueOf().name)
+              }    */
         }
     }
 
@@ -114,7 +101,7 @@ class WorkExperience extends React.Component {
                 break;
             case "selected":
                 this.setState({
-                    selected: target.selectedIndex
+                    selectedOption: value
                 });
                 this._onChange();
                 break;
@@ -127,13 +114,12 @@ class WorkExperience extends React.Component {
         //  window.$jobs.push(new Job(this.state.companyName, this.state.froms, this.state.tills, this.state.descs));
         let job = new Facility(this.state.companyName, this.state.froms.toString(), this.state.tills.toString(), this.state.descs);
         CVActions.addJob(job);
-        this.setState({
-            companyName: "",
-            froms: null,
-            tills: null,
-            descs: null
-        })
-        ;
+        /*  this.setState({
+              companyName: "",
+              froms: "",
+              tills: "",
+              descs: ""
+          });*/
         toast.configure();
         toast("Company infos saved!", {
             position: toast.POSITION.TOP_LEFT,
@@ -143,10 +129,17 @@ class WorkExperience extends React.Component {
     };
 
     getOptions() {
-        this.state.jobs.map(job =>
-            this.state.options.push(<select key={job.valueOf().name}
-                                         value={job.valueOf().name}>job.valueOf().name</select>)
-        )
+        this.state.options = [];
+        /*   this.state.jobs.map(job =>
+               this.state.options.push(<option key={this.state.jobs.indexOf(job)}
+                                               value={this.state.jobs.indexOf(job)}>{job.valueOf().name}</option>)
+           )*/
+        for (let i = 0; i < this.state.jobs.length; i++) {
+            this.state.options.push(
+                <option key={i}
+                        value={i}>{this.state.jobs[i].valueOf().name}</option>
+            );
+        }
     }
 
     render() {
@@ -182,7 +175,12 @@ class WorkExperience extends React.Component {
                 <div className={"row w-100"}></div>
                 <div className={"row d-flex flex-row-reverse"}>
                     <div className="col p-2">
-                        <select name={"selected"} onChange={this.handleInputChange} className={this.state.visible}>
+                        <select name={"selected"} onChange={(event) => {
+                            this.setState({
+                                selectedOption: event.target.selectedIndex
+                            })
+                            this._onChange();
+                        }} className={this.state.visible}>
                             {this.state.options}
                         </select>
                         <button onClick={this.addInput}>Add more Job</button>
