@@ -137,7 +137,7 @@ class WorkExperience extends React.Component {
         this.state.selectedOption = -1;
         this._onChange();
         toast.configure();
-        toast("Company infos edit saved!", {
+        toast("Company infos edited!", {
             position: toast.POSITION.TOP_LEFT,
             type: toast.TYPE.SUCCESS,
             autoClose: 3000,

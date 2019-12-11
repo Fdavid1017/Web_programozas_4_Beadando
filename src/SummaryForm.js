@@ -4,6 +4,7 @@ import SkillsForm from "./SkillsForm";
 import {toast} from "react-toastify";
 import SummaryPage from "./SummaryPage";
 import CVActions from "./CVActions";
+import CVStore from "./CVStore";
 
 class SummaryForm extends React.Component {
 
@@ -13,7 +14,22 @@ class SummaryForm extends React.Component {
             summary: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this._onChange = this._onChange.bind(this);
     }
+
+    _onChange() {
+        this.state.summary = CVStore._summary;
+    }
+
+    componentDidMount() {
+        CVStore.addChangeListener(this._onChange);
+        this._onChange();
+    }
+
+    componentWillUnmount() {
+        CVStore.removeChangeListener(this._onChange)
+    }
+
 
     handleInputChange(event) {
         const target = event.target;

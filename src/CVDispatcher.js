@@ -54,11 +54,33 @@ dispatcher.register((data) => {
 });
 
 dispatcher.register((data) => {
+    if (data.action.actionType !== 'DELETE_SCHOOL') {
+        return;
+    }
+    console.log("Delete: " + data.action.payload);
+    if (data.action.payload >= 0) {
+        CVStore._schools.splice(data.action.payload, 1);
+        CVStore.emitChange();
+    }
+});
+
+dispatcher.register((data) => {
     if (data.action.actionType !== 'ADD_SKILL') {
         return;
     }
     CVStore._skills.push(data.action.payload);
     CVStore.emitChange();
+});
+
+dispatcher.register((data) => {
+    if (data.action.actionType !== 'DELETE_SKILL') {
+        return;
+    }
+    console.log("Delete: " + data.action.payload);
+    if (data.action.payload >= 0) {
+        CVStore._skills.splice(data.action.payload, 1);
+        CVStore.emitChange();
+    }
 });
 
 dispatcher.register((data) => {

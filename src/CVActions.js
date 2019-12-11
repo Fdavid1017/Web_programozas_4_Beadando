@@ -30,10 +30,24 @@ class CVActions {
         })
     }
 
+    deleteSchool(index){
+        CVDispatcher.handleViewAction({
+            actionType: 'DELETE_SCHOOL',
+            payload: index
+        })
+    }
+
     addSkill(skill) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_SKILL',
             payload: skill
+        })
+    }
+
+    deleteSkill(index){
+        CVDispatcher.handleViewAction({
+            actionType: 'DELETE_SKILL',
+            payload: index
         })
     }
 
