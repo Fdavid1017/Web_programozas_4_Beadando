@@ -51,6 +51,7 @@ class WorkExperience extends React.Component {
             });
             return;
         }
+        console.log("Option: " + this.state.selectedOption);
         if (this.state.selectedOption > 0) {
             this.setState({
                 companyName: this.state.jobs[this.state.selectedOption - 1].valueOf().name,
@@ -157,8 +158,9 @@ class WorkExperience extends React.Component {
     }
 
     delete = () => {
-        CVActions.deleteJob(this.state.selectedOption - 1);
+        let i = this.state.selectedOption - 1;
         this.state.selectedOption = -1;
+        CVActions.deleteJob(i);
     };
 
     render() {
