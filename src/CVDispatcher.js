@@ -6,7 +6,7 @@ class CVDispatcher extends Dispatcher {
     handleViewAction(action) {
         this.dispatch({
             source: 'VIEW_ACTION',
-            action: action
+            action: action,
         });
     }
 }
@@ -32,6 +32,17 @@ dispatcher.register((data) => {
     }
     CVStore._jobs.push(data.action.payload);
     CVStore.emitChange();
+});
+
+dispatcher.register((data) => {
+    if (data.action.actionType !== 'DELETE_JOB') {
+        return;
+    }
+    console.log("Delete: " + data.action.payload);
+    if (data.action.payload >= 0) {
+        CVStore._jobs.splice(data.action.payload, 1);
+        CVStore.emitChange();
+    }
 });
 
 dispatcher.register((data) => {

@@ -16,6 +16,13 @@ class CVActions {
         })
     }
 
+    deleteJob(index){
+        CVDispatcher.handleViewAction({
+            actionType: 'DELETE_JOB',
+            payload: index
+        })
+    }
+
     addSchool(school) {
         CVDispatcher.handleViewAction({
             actionType: 'ADD_SCHOOL',

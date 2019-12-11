@@ -62,12 +62,16 @@ button:hover {
   font-weight: bold;
 }
 
-input, textarea {
+input, textarea, select {
   border: solid $divider 1px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   margin-right: 16px;
+}
+
+select{
+  width:100px;
 }
 
 #brand-logo {
